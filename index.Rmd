@@ -3,6 +3,18 @@ title: "A3: SPL Library Checkouts"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+
+```
+
+```{R}
+library(knitr)
+library(ggplot2)
+library(dplyr)
+source("chart1_example.R", local=TRUE)
+```
 ### Introduction
 
 An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
@@ -10,44 +22,45 @@ An introduction of the data and a description of the trends/books/items you are 
 ### Summary Information
 
 Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+  In the sumamry.R, I first calculate the rank of CheckoutType in the dataset based on the number of different checkout type that was recorded, and I found that Freegal has 823 record, hoopla has 2158, Horizon has 462058, OverDrive has 348678, Zinio has 2637. So, the most frequent checkout type is Horizon. Then, in the second question, I explore "What is the month or year with the most/least checkouts for a book that you're interested in?", I decided to explore the book called "Happy birthday, Old Bear / Jane Hissey", and the data analysis shows that Most checkouts in a year: 2017 , Least checkouts in a year: 2017 ,Most checkouts in a month: 1 ,Least checkouts in a month: 3; Then, I explore the question: How has the number of print book checkouts changed over time? The plot shows that start from year 2019, the number of Print book checkouts drop dramatically, then it increase a little bit. However, starts from 2022, the number keep dropping. Then, in the fifth question, I explore What is the most popular publisher, I found that the most popular publisher is: Random House, Inc.
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
 - Who collected/published the data?  
+  
+  The data for this assignment comes from the Seattle Public Library. 
+  
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
 
+  The parameters of the data are UsageClass CheckoutType MaterialType CheckoutYear CheckoutMonth Checkouts Title ISBN Creator Subjects Publisher PublicationYear.
+  
+- How was the data collected or generated?
+  
+  This dataset was collected by Seattle Public Library, it was collected when people check out their book. The dataset start from 2005 and end 2023. However, since the original dataset is too big that is hard to fit in our computer so the dataset was generated to a smaller size that can fit in our computer.
+  
+  
+- Why was the data collected?  
+  
+  There is not an offical explanation. Based on the several analyzing on the data set, I think the reason should be helping people to record the action of the book in order to figure out if the book was borrowed out or not. Then, library can build a system based on that to let costumer figure out the way to access their book in system.
+  
+- What, if any, ethical questions do you need to consider when working with this data?  
+
+I believe that there is not an ethical questions that I need to consider when working on the data since these data was published to public, and it only record the book's action in the library. So, there is not any personal information and not any thing we can do to harm the society based on analyzing the data set.
+
+- What are possible limitations or problems with this data?   (at least 200 words)
+  
+  Although the dataset record a lot of things about book, it still has limitation. For example, when I analyze the data, I found that the data let me feel confuse. In the column called 'MaterialType', there are severael value called EBOOK, AUDIOBOOK,and similar item. Usually, we think the these sub division should belong to EBOOK. So, when I analyze the data, I am not sure if I need to consider the AUDIOBOOK as EBOOK since the AUDIOBOOK was recorded on computer.
 
 ### First Trends Over Time Chart
 
 Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+I include the chart because I want to know people's interested over year. Then, we can use the chart to figure out if there is a relationship between the book that people interested in and other factor if other database was provided. For example, if there is a data set that record the things that happend over all in everyday, then we can figure out what type of things that happen the most and their topic. Then, we can try to see if there is a relationship between the topic of events happend and the type of book that people read.
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = TRUE, warning = FALSE, code = readLines("chart1_example.R")}
+C1
 ```
 
 ### Second Trends Over Time Chart
@@ -67,7 +80,8 @@ When we say "clear" or "human readable" titles and labels, that means that you s
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = TRUE, code = readLines("chart2_example.R")}
+C2
 ```
 
 ### Your Choice
@@ -78,9 +92,9 @@ The last chart is up to you. It could be a line plot, scatter plot, histogram, b
 - The chart needs a clear title 
 - You need a legend for your different line colors and a clear legend title
 
-Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, code = readLines("chart3_example.R")}
+source("chart3_example.R", local = TRUE)
 ```
 
 

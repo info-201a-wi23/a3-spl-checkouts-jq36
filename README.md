@@ -26,6 +26,7 @@ For this assignment, you will create a report about library circulation trends, 
 
 - An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
 - A paragraph of summary information, citing at least 5 values calculated from the data
+
 - A more detailed description of the dataset, who collected/published it, why, and any limitations or problems with the data
 - A first chart that shows trends over time for variables of your choice
 - A second chart that shows trends over time for a variables of your choice
