@@ -26,7 +26,15 @@ The dataset contains all checkout records made by patrons of the Seattle Public 
 
 Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
 
-  In the sumamry.R, I first calculate the rank of CheckoutType in the dataset based on the number of different checkout type that was recorded, and I found that Freegal has 823 record, hoopla has 2158, Horizon has 462058, OverDrive has 348678, Zinio has 2637. So, the most frequent checkout type is Horizon. Then, in the second question, I explore "What is the month or year with the most/least checkouts for a book that you're interested in?", I decided to explore the book called "Happy birthday, Old Bear / Jane Hissey", and the data analysis shows that Most checkouts in a year: 2017 , Least checkouts in a year: 2017 ,Most checkouts in a month: 1 ,Least checkouts in a month: 3; Then, I explore the question: How has the number of print book checkouts changed over time? The plot shows that start from year 2019, the number of Print book checkouts drop dramatically, then it increase a little bit. However, starts from 2022, the number keep dropping. Then, in the fifth question, I explore What is the most popular publisher, I found that the most popular publisher is: Random House, Inc.
+  In the sumamry.R, I first calculate the rank of CheckoutType in the dataset based on the number of different checkout type that was recorded, and I found that Freegal has 823 record, hoopla has 2158, Horizon has 462058, OverDrive has 348678, Zinio has 2637. So, the most frequent checkout type is Horizon. 
+  
+  Then, in the second question, I explore "What is the month or year with the most/least checkouts for a book that you're interested in?", I decided to explore the book called "Happy birthday, Old Bear / Jane Hissey", and the data analysis shows that Most checkouts in a year: 2017 , Least checkouts in a year: 2017 ,Most checkouts in a month: 1 ,Least checkouts in a month: 3; 
+  
+  Besides, I explore the question: How has the number of print book checkouts changed over time? The plot shows that start from year 2019, the number of Print book checkouts drop dramatically, then it increase a little bit. However, starts from 2022, the number keep dropping. 
+  
+  Also, I did a similar thing, I explore What is the month or year with the most/least checkouts for ebooks? The data analysis shows that Most checkouts in a year: 2020 , Least checkouts in a year: 2023 ,Most checkouts in a month: 1 ,Least checkouts in a month: 2; 
+  
+  After that, in the fifth question, I explore What is the most popular publisher, I found that the most popular publisher is: Random House, Inc.
 
 ```{r, echo = FALSE, code = readLines("summary.R")}
 print("What is the rank of CheckoutType in the dataset based on the number of different checkout types that were recorded?")
@@ -109,7 +117,7 @@ The last chart is up to you. It could be a line plot, scatter plot, histogram, b
 
 -Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-  I want to include this plot since I want to figure out which publisher is the most popular by comparing the number of checkout over time for each publisher.
+  I want to include this plot since I want to figure out which publisher is the most popular by comparing the number of checkout over time for each publisher. I used bar plot because I believe that bar plot is a more direct way for me to compare the number of checkouts from different publisher over time.
 
 ```{r, Chart3, message=FALSE,echo=FALSE}
 source("chart3_example.R", local = TRUE)

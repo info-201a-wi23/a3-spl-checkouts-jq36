@@ -8,4 +8,4 @@ C3 <- barplot(top_publishers$Freq,
               ylab = "Number of Checkouts",
               las = 2) # adjust the orientation of the x-axis labels
 
-
+#I want to include this plot since I want to figure out which publisher is the most popular by comparing the number of checkout over time for each publisher. I used bar plot because I believe that bar plot is a more direct way for me to compare the number of checkouts from different publisher over time.
