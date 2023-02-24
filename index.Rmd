@@ -5,26 +5,52 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(knitr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE)
-
-```
-
-```{R}
-library(knitr)
 library(ggplot2)
 library(dplyr)
-source("chart1_example.R", local=TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+# source all R files
+source("chart1_example.R")
+source("chart2_example.R")
+source("chart3_example.R")
+source("summary.R")
 ```
+
+
 ### Introduction
 
 An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
 
+The dataset contains all checkout records made by patrons of the Seattle Public Library, including information such as the checkout date, book title, and book type. By analyzing checkout trends over time, I hope to gain insight into people's interests in different types of books. This analysis can inform the library's planning to better align with people's interests, both now and in the future.
+
 ### Summary Information
 
 Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+
   In the sumamry.R, I first calculate the rank of CheckoutType in the dataset based on the number of different checkout type that was recorded, and I found that Freegal has 823 record, hoopla has 2158, Horizon has 462058, OverDrive has 348678, Zinio has 2637. So, the most frequent checkout type is Horizon. Then, in the second question, I explore "What is the month or year with the most/least checkouts for a book that you're interested in?", I decided to explore the book called "Happy birthday, Old Bear / Jane Hissey", and the data analysis shows that Most checkouts in a year: 2017 , Least checkouts in a year: 2017 ,Most checkouts in a month: 1 ,Least checkouts in a month: 3; Then, I explore the question: How has the number of print book checkouts changed over time? The plot shows that start from year 2019, the number of Print book checkouts drop dramatically, then it increase a little bit. However, starts from 2022, the number keep dropping. Then, in the fifth question, I explore What is the most popular publisher, I found that the most popular publisher is: Random House, Inc.
 
+```{r, echo = FALSE, code = readLines("summary.R")}
+print("What is the rank of CheckoutType in the dataset based on the number of different checkout types that were recorded?")
+summary_info <- get_summary_info(data)
+summary_info$most_frequent_checkout
+print("What is the month or year with the most/least checkouts for a book that you're interested in?")
+summary_info$year_max
+summary_info$year_min
+summary_info$month_max
+summary_info$month_min
 
+print("What is the month or year with the most/least checkouts for ebooks?")
+summary_info$year_max_1
+summary_info$year_min_1
+summary_info$month_max_1
+summary_info$month_min_1
+
+print("How has the number of print book checkouts changed over time?")
+print(summary_info$Q4)
+
+print("What is the most popular publisher?")
+summary_info$popular_publisher
+
+```
 
 ### The Dataset
 
@@ -47,7 +73,7 @@ Write a summary paragraph of findings that includes the 5 values calculated from
   
 - What, if any, ethical questions do you need to consider when working with this data?  
 
-I believe that there is not an ethical questions that I need to consider when working on the data since these data was published to public, and it only record the book's action in the library. So, there is not any personal information and not any thing we can do to harm the society based on analyzing the data set.
+  I believe that there is not an ethical questions that I need to consider when working on the data since these data was published to public, and it only record the book's action in the library. So, there is not any personal information and not any thing we can do to harm the society based on analyzing the data set.
 
 - What are possible limitations or problems with this data?   (at least 200 words)
   
@@ -57,30 +83,19 @@ I believe that there is not an ethical questions that I need to consider when wo
 
 Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-I include the chart because I want to know people's interested over year. Then, we can use the chart to figure out if there is a relationship between the book that people interested in and other factor if other database was provided. For example, if there is a data set that record the things that happend over all in everyday, then we can figure out what type of things that happen the most and their topic. Then, we can try to see if there is a relationship between the topic of events happend and the type of book that people read.
+  I include the chart because I want to know people's interested over year. Then, we can use the chart to figure out if there is a relationship between the book that people interested in and other factor if other database was provided. For example, if there is a data set that record the things that happend over all in everyday, then we can figure out what type of things that happen the most and their topic. Then, we can try to see if there is a relationship between the topic of events happend and the type of book that people read.
 
-``````{r, echo = TRUE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, chart1_example, message=FALSE,echo=FALSE}
 C1
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+  I include this plot since I want to figure out how the number of checkout change for different type of books over year. So, we can try to predict what the data will be in the next year and to see what kind of book's checkout number drop dramatically.
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = TRUE, code = readLines("chart2_example.R")}
+```{r, Chart1, message=FALSE,echo=FALSE}
 C2
 ```
 
@@ -92,8 +107,11 @@ The last chart is up to you. It could be a line plot, scatter plot, histogram, b
 - The chart needs a clear title 
 - You need a legend for your different line colors and a clear legend title
 
+-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 
-``````{r, echo = FALSE, code = readLines("chart3_example.R")}
+  I want to include this plot since I want to figure out which publisher is the most popular by comparing the number of checkout over time for each publisher.
+
+```{r, Chart3, message=FALSE,echo=FALSE}
 source("chart3_example.R", local = TRUE)
 ```
 
